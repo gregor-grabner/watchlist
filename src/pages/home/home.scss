@@ -1,0 +1,15 @@
+page-home {
+  .map-div{
+    display: inline-block;
+    width: 3000px;
+    .movie-cover{
+      display: inline-block;
+      width: 140px;
+      height: 140px;
+      margin-right: 10px;
+      background: #32db64;
+      text-align: right;
+      vertical-align: bottom;
+    }
+  }
+}

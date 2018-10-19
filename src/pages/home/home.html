@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>All Movies</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!-- vertical Scrolling
+  <ion-list>
+    <button ion-item *ngFor="let movie of moviesList" (click)="goToMovieDetail(movie)">
+      {{movie?.title}}
+    </button>
+  </ion-list>
+  --->
+  <!--
+  <ion-searchbar (ionInput)="getFilteredMovieList($event)"></ion-searchbar>
+  <ion-scroll scrollX="true" scrollY="false" style="width: 100%; height: 70%" padding="">
+    <div class="map-div">
+      <span *ngFor="let movie of moviesList" class="movie-cover" (click)="goToMovieDetail(movie)">
+        <img *ngIf="assetsBaseUrl && movie" [src]="assetsBaseUrl + '/' + movie?.poster_path" alt="" width="100%">
+        {{movie?.title}}
+      </span>
+    </div>
+  </ion-scroll>
+  --->
+  <ion-searchbar (ionInput)="getFilteredGenreMovieList($event)"></ion-searchbar>
+  <div padding="" *ngFor="let row of genreMovieList">
+    <h3>{{row?.genre}}</h3>
+    <ion-scroll class="horizontal-scroll" scrollX="true" scrollY="false" style="width: 100%; height: 220px" >
+
+      <div class="map-div" align-items-center="">
+    <span class="movie-cover"
+          *ngFor="let movie of row.movies"
+          (click)="goToMovieDetail(movie)"
+    >
+      <img *ngIf="assetsBaseUrl &&  movie?.poster_path" [src]="assetsBaseUrl + '/' + movie?.poster_path" alt="" height="200" width="140">
+    </span>
+      </div>
+    </ion-scroll>
+  </div>
+</ion-content>

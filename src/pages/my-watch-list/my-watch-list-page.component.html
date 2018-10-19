@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      My Watchlist
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let movie of myWatchlist" (click)="goToMovieDetail(movie)">
+      {{movie?.title}}
+    </button>
+  </ion-list>
+</ion-content>

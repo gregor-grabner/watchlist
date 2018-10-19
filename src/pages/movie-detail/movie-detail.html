@@ -1,0 +1,51 @@
+<!--
+  Generated template for the MovieDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{movie?.title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="poster-wrapper">
+    <img *ngIf="movieBackdorp" [src]="movieBackdorp" alt="" width="100%">
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button *ngIf="!isMovieInMyWatchList" ion-button="" block (click)="addToWatchList(movie)">
+          Add
+        </button>
+        <button *ngIf="isMovieInMyWatchList" ion-button="" block (click)="removeFromWatchList(movie)">
+          Remove
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button="" block>
+          Like
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <div padding="">
+      <h3>{{movie?.title}}</h3>
+      <p>({{movie?.original_title}})</p>
+      <div class="video-wrapper">
+        <iframe [src]="'https://www.youtube.com/embed/' + movieVideos?.results[0]?.key | safe"
+                frameborder="0">
+        </iframe>
+      </div>
+      <p>{{movie?.overview}}</p>
+    </div>
+  </ion-grid>
+
+
+
+</ion-content>
